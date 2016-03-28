@@ -1,0 +1,25 @@
+{{
+  "name": "meteor-auth",
+  "version": "0.1.0",
+  "description": "Composer to implement authentication for Meteor apps with Mantra",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sungwoncho/meteor-auth.git"
+  },
+  "keywords": [
+    "mantra",
+    "authentication",
+    "meteor",
+    "composer"
+  ],
+  "author": "Sung Won Cho <mikeswcho@gmail.com> (https://sungwoncho.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sungwoncho/meteor-auth/issues"
+  },
+  "homepage": "https://github.com/sungwoncho/meteor-auth#readme"
+}
