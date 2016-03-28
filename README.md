@@ -10,10 +10,11 @@ A reusable composer to implement authentication for Mantra applications
 
 ## Usage
 
-Simply import `authComposer` and compose your component with it. Your component
-will reactively receive `loggedIn` and `loggingIn` props.
+Import `authComposer` and compose your component with it.
 
 ```js
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
+import MyComponent from '../components/my_component.jsx';
 import {authComposer} from 'meteor-auth';
 
 export function composer() {
@@ -25,6 +26,19 @@ return composeAll(
   composeWithTracker(composer),
   useDeps();
 )(MyComponent);
+```
+
+Your component will reactively receive `loggedIn` and `loggingIn` props.
+
+```js
+import React form 'react'
+
+const MyComponent = ({loggedIn, loggingIn}) => (
+  {
+    loggedIn ? <div>Welcome</div> :
+    loggingIn ? <div>Loading...</div> : <div>Please log in</div>
+  }
+);
 ```
 
 
