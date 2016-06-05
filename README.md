@@ -1,6 +1,6 @@
 # meteor-auth
 
-A reusable composer to implement authentication for Mantra applications
+A user authentication solution for Mantra applications
 
 
 ## Installation
@@ -10,25 +10,32 @@ A reusable composer to implement authentication for Mantra applications
 
 ## Usage
 
-Import `authComposer` and compose your component with it.
+This module includes:
+
+* `authComposer`
+* `EnsureLoggedIn`
+
+
+### authComposer
+
+Compose a component with `authComposer` using `composeWithTracker`. The
+component will reactively receive `loggedIn` and `loggingIn` props.
+
+*container*
 
 ```js
-import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
+import {composeAll, composeWithTracker} from 'mantra-core';
 import MyComponent from '../components/my_component.jsx';
 import {authComposer} from 'meteor-auth';
 
-export function composer() {
-  // your composer code
-}
+// ...
 
 return composeAll(
   composeWithTracker(authComposer),
-  composeWithTracker(composer),
-  useDeps();
 )(MyComponent);
 ```
 
-Your component will reactively receive `loggedIn` and `loggingIn` props.
+*component*
 
 ```js
 import React form 'react'
@@ -40,6 +47,51 @@ const MyComponent = ({loggedIn, loggingIn}) => (
   }
 );
 ```
+
+### EnsureLoggedIn
+
+Wrap a content with `<EnsureLoggedIn>` to make sure only logged in users can
+see the content.
+
+```js
+import React form 'react'
+import {EnsureLoggedIn} from 'meteor-auth';
+
+const MyComponent = () => (
+  <EnsureLoggedIn>
+    <div>Welcome</div>
+  </EnsureLoggedIn>
+);
+```
+
+#### props
+
+**unauthenticatedMessage**
+
+* type: React component
+* Replace the default component displayed when user is not logged in
+* example:
+
+```js
+const Dashboard = () => (
+  <EnsureLoggedIn unauthenticatedMessage={NotLoggedInMessage}>
+    <DashboardView />
+  </EnsureLoggedIn>
+);
+
+const NotLoggedInMessage = (
+  <div>
+    Please login. <a href="/">Go back to the main page</a>.
+  </div>
+);
+```
+
+## Production ready
+
+![](https://cldup.com/QUydmNJ7Ea.gif)
+
+`meteor-auth` is being used in [RemoteBase](https://remotebase.io) to serve
+actual users.
 
 
 ## License
