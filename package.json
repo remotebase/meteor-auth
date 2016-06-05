@@ -1,6 +1,6 @@
 {
   "name": "meteor-auth",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A reusable composer to implement authentication for Mantra applications",
   "main": "./dist/index.js",
   "scripts": {

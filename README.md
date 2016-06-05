@@ -88,10 +88,10 @@ const NotLoggedInMessage = (
 
 ## Production ready
 
-![](https://cldup.com/QUydmNJ7Ea.gif)
-
-`meteor-auth` is being used in [RemoteBase](https://remotebase.io) to serve
+We are using `meteor-auth` in [RemoteBase](https://remotebase.io) to serve
 actual users.
+
+![](https://cldup.com/QUydmNJ7Ea.gif)
 
 
 ## License
